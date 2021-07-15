@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "winget-new-repos", "winget-new-repos\winget-new-repos.csproj", "{54CE99F1-3C80-45D1-ACBC-86FB80AACECD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54CE99F1-3C80-45D1-ACBC-86FB80AACECD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54CE99F1-3C80-45D1-ACBC-86FB80AACECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54CE99F1-3C80-45D1-ACBC-86FB80AACECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54CE99F1-3C80-45D1-ACBC-86FB80AACECD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EA672BD9-8B8A-45B1-924D-16417263704D}
+	EndGlobalSection
+EndGlobal
