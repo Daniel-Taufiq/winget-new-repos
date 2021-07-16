@@ -13,77 +13,93 @@ namespace winget_new_repos
     {
         static void Main(string[] args)
         {
-            //Program.WriteToOriginal();
+            Program.WriteToOriginal();
             Program.WriteToUpdated();
         }
 
-        public static string RunCommand(bool readOutput)
+        public static void RunCommand(bool readOutput)
         {
-            try
+            string id = "Name                             Id                                 Version";
+            var processInfo = new ProcessStartInfo("cmd.exe", "/c winget search")
             {
-                System.Diagnostics.ProcessStartInfo procStartInfo =
-                    new System.Diagnostics.ProcessStartInfo("cmd", "/c " + "winget search");
+                CreateNoWindow = true,
+                UseShellExecute = false,
+                RedirectStandardError = true,
+                RedirectStandardOutput = true,
+                WorkingDirectory = @"C:\Windows\System32\"
+            };
 
-                procStartInfo.RedirectStandardOutput = true;
-                procStartInfo.UseShellExecute = false;
-                // Do not create the black window.
-                procStartInfo.CreateNoWindow = true;
-                // Now we create a process, assign its ProcessStartInfo and start it
-                System.Diagnostics.Process proc = new System.Diagnostics.Process();
-                proc.StartInfo = procStartInfo;
-                proc.Start();
-                // Get the output into a string
-                string result = proc.StandardOutput.ReadToEnd();
-                // Display the command output.
-                //Console.WriteLine(result);
-                return result;
-            }
-            catch (Exception objException)
+            StringBuilder sb = new StringBuilder();
+            Process p = Process.Start(processInfo);
+            bool startCopying = false;
+            while (!p.StandardOutput.EndOfStream)
             {
-                Console.WriteLine(objException);
-                return null;
+                var line = p.StandardOutput.ReadLine();
+                if (startCopying == true || line == id)
+                {
+                    startCopying = true;
+                    sb.Append(line + Environment.NewLine);
+                }
+                Console.WriteLine(line);
             }
+            File.WriteAllText("original.txt", sb.ToString());
+
         }
 
         private static void WriteToUpdated()
         {
             int counter = 0;
-            string line;
-            ArrayList updatedList = new ArrayList();
             bool isNew = true;
-            List<string> allLines = File.ReadAllLines("original.txt").ToList();
-            List<string> allLinesUpdated = File.ReadAllLines("updated.txt").ToList();
-            // need 3rd list to add
+            List<string> orig = File.ReadAllLines("original.txt").ToList();
+            List<string> mid = File.ReadAllLines("middleware.txt").ToList();
 
-            for (int i = 0; i < allLines.Count; i++)
+            List<string> temp = new List<string>();
+
+            for (int i = 0; i < orig.Count; i++)
             {
-                for (int j = 0; j < allLinesUpdated.Count; j++)
+                for (int j = 0; j < mid.Count; j++)
                 {
-                    if (allLines[i] == allLinesUpdated[j])
+                    if (orig[i] == mid[j])
                     {
                         isNew = false;
                     }
                 }
                 if (isNew == true)
                 {
-                    allLinesUpdated.Add(allLines[i]);
-                    //Console.WriteLine(allLines[i]);
+                    //Console.WriteLine("added repo: " + orig[i]);
+                    temp.Add(orig[i]);
+                    counter++;
                 }
                 isNew = true;
             }
-            for(int i = 0; i < allLinesUpdated.Count; i++)
+            string marRes = string.Join(Environment.NewLine, temp.ToArray());
+            if(temp.Count != 0)
             {
-                Console.WriteLine(allLinesUpdated[i]);
+                File.WriteAllText("updated.txt", marRes);
             }
-            string marRes = string.Join(Environment.NewLine, allLinesUpdated.ToArray());
-            //Console.WriteLine("marRes is: " + marRes);
-            File.WriteAllText("updated.txt", marRes);
+            if(mid.Count == 0)
+            {
+                File.AppendAllText("middleware.txt", marRes);
+            }
+            else
+            {
+                File.AppendAllText("middleware.txt", Environment.NewLine + marRes);
+            }
+
+
+            List<string> updated = File.ReadAllLines("updated.txt").ToList();
+
+            for(int i = 0; i < updated.Count; i++)
+            {
+                Console.WriteLine(updated[i]);
+            }
+            Console.WriteLine("There were {0} recently added packages", counter);
         }
 
         private static void WriteToOriginal()
         {
-            string output = Program.RunCommand(false);
-            File.WriteAllText("original.txt", output);
+            Program.RunCommand(false);
+            //File.WriteAllText("original.txt", output);
         }
         
     }
