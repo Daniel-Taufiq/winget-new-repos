@@ -19,31 +19,40 @@ namespace winget_new_repos
 
         public static void RunCommand(bool readOutput)
         {
-            string id = "Name                             Id                                 Version";
-            var processInfo = new ProcessStartInfo("cmd.exe", "/c winget search")
-            {
-                CreateNoWindow = true,
-                UseShellExecute = false,
-                RedirectStandardError = true,
-                RedirectStandardOutput = true,
-                WorkingDirectory = @"C:\Windows\System32\"
-            };
-
-            StringBuilder sb = new StringBuilder();
-            Process p = Process.Start(processInfo);
+            string id = "Name";
             bool startCopying = false;
-            while (!p.StandardOutput.EndOfStream)
-            {
-                var line = p.StandardOutput.ReadLine();
-                if (startCopying == true || line == id)
-                {
-                    startCopying = true;
-                    sb.Append(line + Environment.NewLine);
-                }
-                Console.WriteLine(line);
-            }
-            File.WriteAllText("original.txt", sb.ToString());
+            StringBuilder sb = new StringBuilder();
 
+            try
+            {
+                System.Diagnostics.ProcessStartInfo procStartInfo =
+                    new System.Diagnostics.ProcessStartInfo("cmd", "/c " + "winget search");
+
+                procStartInfo.RedirectStandardOutput = true;
+                procStartInfo.UseShellExecute = false;
+                // Do not create the black window.
+                procStartInfo.CreateNoWindow = true;
+                // Now we create a process, assign its ProcessStartInfo and start it
+                System.Diagnostics.Process proc = new System.Diagnostics.Process();
+                proc.StartInfo = procStartInfo;
+                proc.Start();
+
+                while (!proc.StandardOutput.EndOfStream)
+                {
+                    string line = proc.StandardOutput.ReadLine();
+                    // ignore meta data at the start
+                    if (startCopying == true || line.Split(' ')[0] == id)
+                    {
+                        startCopying = true;
+                        sb.Append(line + Environment.NewLine);
+                    }
+                }
+                File.WriteAllText("original.txt", sb.ToString());
+            }
+            catch (Exception objException)
+            {
+                Console.WriteLine(objException);
+            }
         }
 
         private static void WriteToUpdated()
@@ -66,7 +75,6 @@ namespace winget_new_repos
                 }
                 if (isNew == true)
                 {
-                    //Console.WriteLine("added repo: " + orig[i]);
                     temp.Add(orig[i]);
                     counter++;
                 }
@@ -93,13 +101,12 @@ namespace winget_new_repos
             {
                 Console.WriteLine(updated[i]);
             }
-            Console.WriteLine("There were {0} recently added packages", counter);
+            Console.WriteLine("\nThere were {0} recently added or updated packages", counter);
         }
 
         private static void WriteToOriginal()
         {
             Program.RunCommand(false);
-            //File.WriteAllText("original.txt", output);
         }
         
     }
