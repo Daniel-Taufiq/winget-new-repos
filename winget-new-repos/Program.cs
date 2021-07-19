@@ -100,13 +100,6 @@ namespace winget_new_repos
 
             List<string> updated = File.ReadAllLines("updated.txt").ToList();
 
-
-            if(updated.Count == 0)
-            {
-                Console.WriteLine("Name                             Id                                 Version");
-                Console.WriteLine("------------------------------------------------------------------------------------------");
-            }
-
             for(int i = 0; i < updated.Count; i++)
             {
                 Console.WriteLine(updated[i]);
