@@ -13,6 +13,7 @@ namespace winget_new_repos
     {
         static void Main(string[] args)
         {
+            Program.CreateFiles();
             Program.WriteToOriginal();
             Program.WriteToUpdated();
         }
@@ -107,6 +108,28 @@ namespace winget_new_repos
         private static void WriteToOriginal()
         {
             Program.RunCommand(false);
+        }
+
+        private static void CreateFiles()
+        {
+            if (!File.Exists("original.txt"))
+            {
+                CreateFile("original.txt");
+            }
+            if (!File.Exists("middleware.txt"))
+            {
+                CreateFile("middleware.txt");
+            }
+            if (!File.Exists("updated.txt"))
+            {
+                CreateFile("updated.txt");
+            }
+        }
+
+        private static void CreateFile(string filename)
+        {
+            var file = File.Create(filename);
+            file.Close();
         }
         
     }
