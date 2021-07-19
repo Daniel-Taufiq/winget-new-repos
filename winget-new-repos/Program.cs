@@ -16,6 +16,8 @@ namespace winget_new_repos
             Program.CreateFiles();
             Program.WriteToOriginal();
             Program.WriteToUpdated();
+            Console.WriteLine("Press enter to close...");
+            Console.ReadLine();
         }
 
         public static void RunCommand(bool readOutput)
@@ -97,6 +99,13 @@ namespace winget_new_repos
 
 
             List<string> updated = File.ReadAllLines("updated.txt").ToList();
+
+
+            if(updated.Count == 0)
+            {
+                Console.WriteLine("Name                             Id                                 Version");
+                Console.WriteLine("------------------------------------------------------------------------------------------");
+            }
 
             for(int i = 0; i < updated.Count; i++)
             {

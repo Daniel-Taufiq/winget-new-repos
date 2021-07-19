@@ -300,7 +300,7 @@ Cisco Webex Meetings             Cisco.CiscoWebexMeetings           41.7.4.13
 Cisco Jabber                     Cisco.Jabber                       14.0.0.55563
 Webex                            Cisco.WebexTeams                   41.7.0.19440
 ClamWin Free Antivirus           ClamWin.ClamWin                    0.103.2.1
-bottom                           Clement.bottom                     0.6.2
+bottom                           Clement.bottom                     0.6.3
 Clementine                       Clementine.Clementine              1.3.1
 ClickUp                          ClickUp.ClickUp                    2.0.22
 Clockify                         Clockify.Clockify                  2.0.2
@@ -1004,11 +1004,11 @@ Microsoft Graph CLI              Microsoft.MsGraphCLI               0.1.0
 Multilingual App Toolkit         Microsoft.MultilingualAppToolkit   4.0.1916.0
 Microsoft 365 Apps for enterpriΓÇª Microsoft.Office                   16.0.14131.20278
 Office Deployment Tool           Microsoft.OfficeDeploymentTool     16.0.14026.20254
-Microsoft OneDrive               Microsoft.OneDrive                 21.119.0613.0001
+Microsoft OneDrive               Microsoft.OneDrive                 21.129.0627.0002
 Microsoft OneDrive Enterprise    Microsoft.OneDriveEnterprise       20.169.0823.0008
-Microsoft OneDrive Insiders      Microsoft.OneDriveInsiders         21.114.0606.0001
-Microsoft OneDrive Internal Fast Microsoft.OneDriveInternalFast     21.122.0616.0001
-Microsoft OneDrive Internal Slow Microsoft.OneDriveInternalSlow     21.119.0613.0001
+Microsoft OneDrive Insiders      Microsoft.OneDriveInsiders         21.134.0704.0001
+Microsoft OneDrive Internal Fast Microsoft.OneDriveInternalFast     21.144.0715.0003
+Microsoft OneDrive Internal Slow Microsoft.OneDriveInternalSlow     21.139.0711.0001
 Microsoft Build of OpenJDK withΓÇª Microsoft.OpenJDK.11               11.0.11.9
 Microsoft Build of OpenJDK withΓÇª Microsoft.OpenJDK.16               16.0.1.9
 Microsoft PowerApps CLI          Microsoft.PowerAppsCLI             1.0
@@ -1025,9 +1025,9 @@ Skype                            Microsoft.Skype                    8.73
 Skype Insiders                   Microsoft.SkypeInsiders            8.73
 Surface Duo Emulator             Microsoft.SurfaceDuoEmulator       2021.527.6
 Microsoft Teams                  Microsoft.Teams                    1.4.00.16575
-Microsoft Teams Continuous DeplΓÇª Microsoft.TeamsContinuousDeploymeΓÇª 1.4.00.16958
+Microsoft Teams Continuous DeplΓÇª Microsoft.TeamsContinuousDeploymeΓÇª 1.4.00.20062
 Microsoft Teams Exploration      Microsoft.TeamsExploration         1.4.00.16908
-Microsoft Teams Preview          Microsoft.TeamsPreview             1.4.00.14170
+Microsoft Teams Preview          Microsoft.TeamsPreview             1.4.00.18264
 Windows 10 Update Assistant      Microsoft.UpdateAssistant          1.4.9200.23367
 Microsoft Visual C++ 2005 RedisΓÇª Microsoft.VC++2005Redist-x64       8.0.61000
 Microsoft Visual C++ 2005 RedisΓÇª Microsoft.VC++2005Redist-x86       8.0.61001
@@ -1222,7 +1222,7 @@ Speedtest by Ookla               Ookla.Speedtest                    1.8.156.001
 Open-Shell-Menu                  Open-Shell.Open-Shell-Menu         4.4.160
 Node.js                          OpenJS.NodeJS                      16.5.0
 Node.js LTS                      OpenJS.NodeJSLTS                   14.17.3
-Node.js Nightly                  OpenJS.NodeJSNightly               17.0.0-20210618
+Node.js Nightly                  OpenJS.NodeJSNightly               17.0.0-20210719
 Open Live Writer                 OpenLiveWriter.OpenLiveWriter      0.6.2
 OpenMPT                          OpenMPT.OpenMPT                    1.29.11.00
 4K Slideshow Maker               OpenMedia.4KSlideshowMaker         1.8.1.1029
@@ -1604,7 +1604,7 @@ Bulk Rename Utility              TGRMNSoftware.BulkRenameUtility    3.4.3.0
 TIDAL                            TIDALMusicAS.TIDAL                 2.28.0
 MTPuTTY                          TTYPlus.MTPutty                    1.8
 TeXworks                         TUG.TeXworks                       0.6.6
-TUtoolbox                        TUitTUWien.TUtoolbox               2021.0.0.333
+TUtoolbox                        TUitTUWien.TUtoolbox               2021.0.0.335
 TablePlus                        TablePlus.TablePlus                4.2.0
 Tableau Desktop                  Tableau.Desktop                    2021.1.2
 Taisei                           Taisei.Taisei                      1.3.2
