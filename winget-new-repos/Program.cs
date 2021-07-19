@@ -104,7 +104,7 @@ namespace winget_new_repos
             {
                 Console.WriteLine(updated[i]);
             }
-            Console.WriteLine("\nThere were {0} recently added or updated packages", counter);
+            Console.WriteLine("\nThere were {0} recently added or updated packages", updated.Count);
         }
 
         private static void WriteToOriginal()
