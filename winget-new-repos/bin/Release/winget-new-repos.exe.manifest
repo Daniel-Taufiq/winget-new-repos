@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="winget-new-repos.exe" size="7656">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="winget-new-repos.exe" size="8168">
       <assemblyIdentity name="winget-new-repos" version="1.0.0.0" publicKeyToken="D6953D919B7F703C" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>xNaunkTcWNNsF3z0NxVUIk0pG3zC6gTKmGdsbF3Hsu0=</dsig:DigestValue>
+        <dsig:DigestValue>HQeBbvuC8ALXtOxcRCckFPcQZVoEno/tEdzDwxtOl3k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

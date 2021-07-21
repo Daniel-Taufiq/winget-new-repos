@@ -11,6 +11,13 @@ namespace winget_new_repos
 {
     class Program
     {
+        private static string directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        private static string folder = "winget-new-repos";
+        private static string fullPath = Path.Combine(directory, folder);
+        private static string original = Path.Combine(fullPath, "original.txt");
+        private static string middleware = Path.Combine(fullPath, "middleware.txt");
+        private static string updated = Path.Combine(fullPath, "updated.txt");
+
         static void Main(string[] args)
         {
             Program.CreateFiles();
@@ -50,7 +57,12 @@ namespace winget_new_repos
                         sb.Append(line + Environment.NewLine);
                     }
                 }
-                File.WriteAllText("original.txt", sb.ToString());
+
+                using (var myFile = File.CreateText(original))
+                {
+                    myFile.WriteLine(sb.ToString());
+                }
+
             }
             catch (Exception objException)
             {
@@ -60,12 +72,11 @@ namespace winget_new_repos
 
         private static void WriteToUpdated()
         {
-            int counter = 0;
             bool isNew = true;
-            List<string> orig = File.ReadAllLines("original.txt").ToList();
-            List<string> mid = File.ReadAllLines("middleware.txt").ToList();
-
+            List<string> orig = File.ReadAllLines(original).ToList();
+            List<string> mid = File.ReadAllLines(middleware).ToList();
             List<string> temp = new List<string>();
+            List<string> updatedList;
 
             for (int i = 0; i < orig.Count; i++)
             {
@@ -79,32 +90,31 @@ namespace winget_new_repos
                 if (isNew == true)
                 {
                     temp.Add(orig[i]);
-                    counter++;
                 }
                 isNew = true;
             }
             string marRes = string.Join(Environment.NewLine, temp.ToArray());
-            if(temp.Count != 0)
+            if (temp.Count != 0)
             {
-                File.WriteAllText("updated.txt", marRes);
+                File.WriteAllText(updated, marRes);
             }
-            if(mid.Count == 0)
+            if (mid.Count == 0)
             {
-                File.AppendAllText("middleware.txt", marRes);
+                File.AppendAllText(middleware, marRes);
             }
             else
             {
-                File.AppendAllText("middleware.txt", Environment.NewLine + marRes);
+                File.AppendAllText(middleware, Environment.NewLine + marRes);
             }
 
 
-            List<string> updated = File.ReadAllLines("updated.txt").ToList();
+            updatedList = File.ReadAllLines(updated).ToList();
 
-            for(int i = 0; i < updated.Count; i++)
+            for (int i = 0; i < updatedList.Count; i++)
             {
-                Console.WriteLine(updated[i]);
+                Console.WriteLine(updatedList[i]);
             }
-            Console.WriteLine("\nThere were {0} recently added or updated packages", updated.Count);
+            Console.WriteLine("\nThere were {0} recently added or updated packages", updatedList.Count);
         }
 
         private static void WriteToOriginal()
@@ -114,25 +124,25 @@ namespace winget_new_repos
 
         private static void CreateFiles()
         {
-            if (!File.Exists("original.txt"))
+            if (!Directory.Exists(fullPath))
             {
-                CreateFile("original.txt");
+                Directory.CreateDirectory(fullPath);
             }
-            if (!File.Exists("middleware.txt"))
-            {
-                CreateFile("middleware.txt");
-            }
-            if (!File.Exists("updated.txt"))
-            {
-                CreateFile("updated.txt");
-            }
+
+            CreateFile(original);
+            CreateFile(middleware);
+            CreateFile(updated);
         }
+
 
         private static void CreateFile(string filename)
         {
-            var file = File.Create(filename);
-            file.Close();
+            if(!File.Exists(filename))
+            {
+                var file = File.Create(filename);
+                file.Close();
+            }
         }
-        
+
     }
 }

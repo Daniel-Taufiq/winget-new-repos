@@ -1,2 +1,0 @@
-UCF                              Ahlyab.UdemyCouponFetcher          1
-ConEmu                           Maximus5.ConEmu                    11.210.6270

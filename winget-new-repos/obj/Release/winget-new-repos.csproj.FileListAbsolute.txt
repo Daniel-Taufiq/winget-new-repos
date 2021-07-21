@@ -1,0 +1,11 @@
+C:\Users\Taufiq\source\repos\winget-new-repos\winget-new-repos\bin\Release\winget-new-repos.exe.config
+C:\Users\Taufiq\source\repos\winget-new-repos\winget-new-repos\bin\Release\winget-new-repos.exe.manifest
+C:\Users\Taufiq\source\repos\winget-new-repos\winget-new-repos\bin\Release\winget-new-repos.application
+C:\Users\Taufiq\source\repos\winget-new-repos\winget-new-repos\bin\Release\winget-new-repos.exe
+C:\Users\Taufiq\source\repos\winget-new-repos\winget-new-repos\bin\Release\winget-new-repos.pdb
+C:\Users\Taufiq\source\repos\winget-new-repos\winget-new-repos\obj\Release\winget-new-repos.csproj.CoreCompileInputs.cache
+C:\Users\Taufiq\source\repos\winget-new-repos\winget-new-repos\obj\Release\winget-new-repos.exe.manifest
+C:\Users\Taufiq\source\repos\winget-new-repos\winget-new-repos\obj\Release\winget-new-repos.application
+C:\Users\Taufiq\source\repos\winget-new-repos\winget-new-repos\obj\Release\winget-new-repos.exe
+C:\Users\Taufiq\source\repos\winget-new-repos\winget-new-repos\obj\Release\winget-new-repos.pdb
+C:\Users\Taufiq\source\repos\winget-new-repos\winget-new-repos\obj\Release\winget-new-repos.csproj.AssemblyReference.cache
