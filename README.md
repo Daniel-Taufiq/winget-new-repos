@@ -2,7 +2,7 @@
 
 This program displays the latest repos added or updated in the Windows Package Manager.
 
-![gif](C:\Users\Taufiq\Documents\winget-new-repos-gif.gif)
+![gif](https://github.com/Daniel-Taufiq/winget-new-repos/blob/main/winget-new-repos/gif/winget-new-repos-gif.gif)
 
 ## Pre-Requisite
 
